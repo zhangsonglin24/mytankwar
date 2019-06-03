@@ -65,7 +65,9 @@ public class Tank {
 				y += SPEED;
 				break;
 		}
-		if (random.nextInt(10) > 8) this.fire();
+		if (this.group == Group.BAD){
+			if (random.nextInt(10) > 8) this.fire();
+		}
 
 	}
 
