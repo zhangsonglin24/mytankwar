@@ -52,6 +52,7 @@ public class Tank {
 	private void move(Group group) {
 		if (!moving) return;
 		if (group == Group.GOOD){
+			//增加主战tank速度
 			SPEED = 10;
 			switch (dir){
 				case LEFT:
