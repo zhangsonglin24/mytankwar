@@ -8,18 +8,24 @@ import java.util.Properties;
  * @Date: 2019/6/3
  */
 public class PropertyMgr {
-	private static Properties properties = new Properties();
+	private static volatile  Properties properties;
 
-	static {
-		try {
-			properties.load(PropertyMgr.class.getClassLoader().getResourceAsStream("config"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+	private PropertyMgr(){}
 
 	public static Object get(String key){
-		if (properties == null) return null;
+		if (properties == null){
+			synchronized (PropertyMgr.class){
+				if (properties == null){
+					properties = new Properties();
+					try {
+						properties.load(PropertyMgr.class.getClassLoader().getResourceAsStream("config"));
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
 		return properties.get(key);
 	}
+
 }
