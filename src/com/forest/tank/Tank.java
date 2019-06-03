@@ -12,7 +12,7 @@ public class Tank {
 
 	private int x,y;
 	private Dir dir = Dir.RIGHT;
-	private int SPEED = 1;
+	private int SPEED = 5;
 	private boolean moving = true;
 	private TankFrame tf = null;
 	public static int WIDTH = ResourceManagers.goodTankU.getWidth();
@@ -89,6 +89,16 @@ public class Tank {
 		if (group == Group.BAD && random.nextInt(100) > 95) this.fire();
 
 		if (group == Group.BAD && random.nextInt(10) > 8) randomDir();
+
+		//边界检测
+		boundsCheck();
+	}
+
+	private void boundsCheck() {
+		if (this.x < 0) x =0;
+		else if (this.y < 30) y = 30;
+		else if (this.x > TankFrame.GAME_WIDTH - Tank.HEIGHT) x = TankFrame.GAME_WIDTH - Tank.WIDTH;
+		else if (this.y > TankFrame.GAME_HEIGHT - Tank.HEIGHT) y = TankFrame.GAME_HEIGHT - Tank.HEIGHT;
 	}
 
 	//随机改变方向
