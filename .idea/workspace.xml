@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b4740ba-59bb-4893-badc-b891b9f8cc8a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/forest/tank/Audio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tankwar/com/forest/tank/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tankwar/com/forest/tank/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tankwar/com/forest/tank/Explode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tankwar/com/forest/tank/Explode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tankwar/com/forest/tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tankwar/com/forest/tank/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tankwar/com/forest/tank/TankFrame$MyKeyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tankwar/com/forest/tank/TankFrame$MyKeyListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tankwar/com/forest/tank/TankFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tankwar/com/forest/tank/TankFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/forest/tank/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/forest/tank/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/forest/tank/Explode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/forest/tank/Explode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/forest/tank/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/forest/tank/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/forest/tank/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/forest/tank/TankFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +22,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="274" />
+          <entry key="JAVA" value="294" />
           <entry key="PLAIN_TEXT" value="13" />
         </counts>
       </usages-collector>
@@ -40,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/forest/tank/Bullet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+            <state relative-caret-position="480">
+              <caret line="82" column="1" lean-forward="true" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -52,17 +42,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/forest/tank/Explode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
+            <state relative-caret-position="432">
               <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/forest/tank/Tank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="87" column="14" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
+            <state relative-caret-position="361">
+              <caret line="100" column="58" lean-forward="true" selection-start-line="99" selection-start-column="8" selection-end-line="100" selection-end-column="58" />
               <folding>
                 <element signature="e#1727#1728#0" expanded="true" />
                 <element signature="e#1759#1760#0" expanded="true" />
@@ -100,10 +90,10 @@
         <option value="$PROJECT_DIR$/src/com/forest/tank/ImageUtil.java" />
         <option value="$PROJECT_DIR$/src/com/forest/tank/ResourceManagers.java" />
         <option value="$PROJECT_DIR$/src/com/forest/tank/Audio.java" />
-        <option value="$PROJECT_DIR$/src/com/forest/tank/Bullet.java" />
         <option value="$PROJECT_DIR$/src/com/forest/tank/TankFrame.java" />
         <option value="$PROJECT_DIR$/src/com/forest/tank/Explode.java" />
         <option value="$PROJECT_DIR$/src/com/forest/tank/Tank.java" />
+        <option value="$PROJECT_DIR$/src/com/forest/tank/Bullet.java" />
       </list>
     </option>
   </component>
@@ -154,7 +144,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559550911523" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559551325855" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../tank-master/tank" />
   </component>
   <component name="RecentsManager">
@@ -207,7 +197,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1559545812153</updated>
-      <workItem from="1559545813671" duration="4914000" />
+      <workItem from="1559545813671" duration="5168000" />
     </task>
     <task id="LOCAL-00001" summary="增加主战tank速度">
       <created>1559547561576</created>
@@ -220,7 +210,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4179000" />
+    <option name="totallyTimeSpent" value="4433000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -305,28 +295,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/forest/tank/Bullet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/forest/tank/Tank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+        <state relative-caret-position="361">
+          <caret line="100" column="58" lean-forward="true" selection-start-line="99" selection-start-column="8" selection-end-line="100" selection-end-column="58" />
+          <folding>
+            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="e#1759#1760#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/forest/tank/Explode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
+        <state relative-caret-position="432">
           <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/forest/tank/Tank.java">
+    <entry file="file://$PROJECT_DIR$/src/com/forest/tank/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="87" column="14" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
-          <folding>
-            <element signature="e#1727#1728#0" expanded="true" />
-            <element signature="e#1759#1760#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="480">
+          <caret line="82" column="1" lean-forward="true" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
         </state>
       </provider>
     </entry>
