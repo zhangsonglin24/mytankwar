@@ -10,8 +10,8 @@ import java.util.Random;
  */
 public class Tank {
 
-	private int x,y;
-	private Dir dir = Dir.RIGHT;
+	protected int x,y;
+	protected Dir dir = Dir.RIGHT;
 	private int SPEED = 5;
 	private boolean moving = true;
 	private TankFrame tf = null;
@@ -22,6 +22,8 @@ public class Tank {
 	private Random random = new Random();
 	//初始化一个Rectangle，跟着tank
 	Rectangle rectangle = new Rectangle();
+
+	FireStrategy fs;
 
 	public Tank(int x, int y, Dir dir, Group group, TankFrame tf){
 		super();
@@ -35,6 +37,12 @@ public class Tank {
 		rectangle.y = this.y;
 		rectangle.width = WIDTH;
 		rectangle.height = HEIGHT;
+
+		if (this.group == Group.BAD){
+			fs = new DefaultFireStrategy();
+		}else {
+			fs = new FourDirFireStrategy();
+		}
 	}
 
 	public void paint(Graphics g) {
@@ -117,9 +125,7 @@ public class Tank {
 	}
 
 	public void fire() {
-		int bX = this.x + Tank.WIDTH/2 - Bullet.WIDTH/2;
-		int bY = this.y + Tank.HEIGHT/2 - Bullet.HEIGHT/2;
-		tf.bulletList.add(new Bullet(bX,bY,this.dir,this.group,tf));
+		fs.fire(this);
 	}
 
 
