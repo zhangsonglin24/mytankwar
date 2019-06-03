@@ -12,7 +12,7 @@ public class Tank {
 
 	private int x,y;
 	private Dir dir = Dir.RIGHT;
-	private static final int SPEED = 3;
+	private int SPEED = 1;
 	private boolean moving = true;
 	private TankFrame tf = null;
 	public static int WIDTH = ResourceManagers.tankD.getWidth();
@@ -46,26 +46,45 @@ public class Tank {
 				g.drawImage(ResourceManagers.tankD,x,y,null);
 				break;
 		}
-		move();
+		move(this.group);
 	}
 
-	private void move() {
+	private void move(Group group) {
 		if (!moving) return;
-		switch (dir){
-			case LEFT:
-				x -= SPEED;
-				break;
-			case UP:
-				y -= SPEED;
-				break;
-			case RIGHT:
-				x += SPEED;
-				break;
-			case DOWN:
-				y += SPEED;
-				break;
+		if (group == Group.GOOD){
+			SPEED = 10;
+			switch (dir){
+				case LEFT:
+					x -= SPEED;
+					break;
+				case UP:
+					y -= SPEED;
+					break;
+				case RIGHT:
+					x += SPEED;
+					break;
+				case DOWN:
+					y += SPEED;
+					break;
+			}
+		}else {
+			switch (dir){
+				case LEFT:
+					x -= SPEED;
+					break;
+				case UP:
+					y -= SPEED;
+					break;
+				case RIGHT:
+					x += SPEED;
+					break;
+				case DOWN:
+					y += SPEED;
+					break;
+			}
 		}
-		if (this.group == Group.BAD){
+
+		if (group == Group.BAD){
 			if (random.nextInt(10) > 8) this.fire();
 		}
 
@@ -104,7 +123,7 @@ public class Tank {
 		this.dir = dir;
 	}
 
-	public static int getSPEED() {
+	public int getSPEED() {
 		return SPEED;
 	}
 

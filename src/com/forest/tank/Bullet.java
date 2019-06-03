@@ -8,7 +8,7 @@ import java.awt.*;
  * @Date: 2019/5/31
  */
 public class Bullet {
-	private static int SPEED = 10;
+	private static final int SPEED = 10;
 	public static int WIDTH = ResourceManagers.bulletD.getWidth();
 	public static int HEIGHT = ResourceManagers.bulletD.getHeight();
 	private int x,y;
@@ -43,43 +43,24 @@ public class Bullet {
 				g.drawImage(ResourceManagers.bulletD,x,y,null);
 				break;
 		}
-		move(this.group);
+		move();
 	}
 
-	private void move(Group group) {
-		if (group == Group.GOOD){
-			SPEED = 30;
-			switch (dir){
-				case LEFT:
-					x -= SPEED;
-					break;
-				case UP:
-					y -= SPEED;
-					break;
-				case RIGHT:
-					x += SPEED;
-					break;
-				case DOWN:
-					y += SPEED;
-					break;
-			}
-		}else {
-			switch (dir){
-				case LEFT:
-					x -= SPEED;
-					break;
-				case UP:
-					y -= SPEED;
-					break;
-				case RIGHT:
-					x += SPEED;
-					break;
-				case DOWN:
-					y += SPEED;
-					break;
-			}
+	private void move() {
+		switch (dir){
+			case LEFT:
+				x -= SPEED;
+				break;
+			case UP:
+				y -= SPEED;
+				break;
+			case RIGHT:
+				x += SPEED;
+				break;
+			case DOWN:
+				y += SPEED;
+				break;
 		}
-
 		if(x < 0 || y < 0 || x > TankFrame.GAME_WIDTH || y > TankFrame.GAME_HEIGHT) living = false;
 	}
 
