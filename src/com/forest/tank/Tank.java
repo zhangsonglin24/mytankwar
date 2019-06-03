@@ -20,6 +20,8 @@ public class Tank {
 	private boolean living = true;
 	public Group group = Group.BAD;
 	private Random random = new Random();
+	//初始化一个Rectangle，跟着tank
+	Rectangle rectangle = new Rectangle();
 
 	public Tank(int x, int y, Dir dir, Group group, TankFrame tf){
 		super();
@@ -28,6 +30,11 @@ public class Tank {
 		this.dir = dir;
 		this.group = group;
 		this.tf = tf;
+
+		rectangle.x = this.x;
+		rectangle.y = this.y;
+		rectangle.width = WIDTH;
+		rectangle.height = HEIGHT;
 	}
 
 	public void paint(Graphics g) {
@@ -92,6 +99,9 @@ public class Tank {
 
 		//边界检测
 		boundsCheck();
+		//更新rectangle
+		rectangle.x = this.x;
+		rectangle.y = this.y;
 	}
 
 	private void boundsCheck() {
