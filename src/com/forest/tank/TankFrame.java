@@ -17,7 +17,7 @@ public class TankFrame extends Frame {
 	List<Bullet> bulletList = new ArrayList<>();
 	List<Tank> tanks = new ArrayList<>();
 	static final int GAME_WIDTH = 1080, GAME_HEIGHT = 960;
-	Explode e = new Explode(100,100,this);
+	List<Explode> explodes = new ArrayList<>();
 
 	TankFrame() {
 		setTitle("坦克大战");
@@ -54,6 +54,7 @@ public class TankFrame extends Frame {
 		g.setColor(Color.WHITE);
 		g.drawString("子弹的数量:" + bulletList.size(), 10, 60);
 		g.drawString("敌人的数量:" + tanks.size(), 10, 80);
+		g.drawString("爆炸的数量:" + explodes.size(), 10, 100);
 		g.setColor(c);
 
 		myTank.paint(g);
@@ -65,13 +66,15 @@ public class TankFrame extends Frame {
 			Tank b = tanks.get(i);
 			b.paint(g);
 		}
+		for (int i = 0;i <explodes.size();i++){
+			explodes.get(i).paint(g);
+		}
 		//子弹与坦克碰撞检测
 		for (int i = 0;i<bulletList.size();i++){
 			for (int j= 0;j<tanks.size();j++){
 				bulletList.get(i).collideWith(tanks.get(j));
 			}
 		}
-		e.paint(g);
 	}
 
 
@@ -100,6 +103,7 @@ public class TankFrame extends Frame {
 					break;
 			}
 			setMainTankDir();
+			//new Thread(()->new Audio("audio/tank_move.wav").play()).start();
 		}
 
 		@Override

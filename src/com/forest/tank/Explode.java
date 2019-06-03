@@ -9,7 +9,6 @@ public class Explode {
 
     private int x, y;
 
-    private boolean living = true;
     TankFrame tf = null;
 
     private int step = 0;
@@ -23,11 +22,10 @@ public class Explode {
 
 
     public void paint(Graphics g) {
-
         g.drawImage(ResourceManagers.explodes[step++], x, y, null);
 
         if(step >= ResourceManagers.explodes.length)
-            step = 0;
+            tf.explodes.remove(this);
     }
 
 }

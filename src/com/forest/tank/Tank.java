@@ -15,8 +15,8 @@ public class Tank {
 	private int SPEED = 1;
 	private boolean moving = true;
 	private TankFrame tf = null;
-	public static int WIDTH = ResourceManagers.tankD.getWidth();
-	public static int HEIGHT = ResourceManagers.tankD.getHeight();
+	public static int WIDTH = ResourceManagers.tankU.getWidth();
+	public static int HEIGHT = ResourceManagers.tankU.getHeight();
 	private boolean living = true;
 	public Group group = Group.BAD;
 	private Random random = new Random();
@@ -85,10 +85,15 @@ public class Tank {
 			}
 		}
 
-		if (group == Group.BAD){
-			if (random.nextInt(10) > 8) this.fire();
-		}
+		//随机开火
+		if (group == Group.BAD && random.nextInt(100) > 95) this.fire();
 
+		if (group == Group.BAD && random.nextInt(10) > 8) randomDir();
+	}
+
+	//随机改变方向
+	private void randomDir() {
+		dir = Dir.values()[random.nextInt(4)];
 	}
 
 	public void fire() {
