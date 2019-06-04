@@ -8,7 +8,7 @@ import java.util.Random;
  * @Author: Forest
  * @Date: 2019/5/31
  */
-public class Tank {
+public class Tank extends GameObject {
 
 	protected int x,y;
 	protected Dir dir = Dir.RIGHT;
@@ -46,7 +46,7 @@ public class Tank {
 	}
 
 	public void paint(Graphics g) {
-		if (!living) gm.tanks.remove(this);
+		if (!living) gm.remove(this);
 		switch (dir){
 			case LEFT:
 				g.drawImage(this.group == Group.GOOD ? ResourceManagers.goodTankL : ResourceManagers.badTankL,x,y,null);

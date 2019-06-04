@@ -7,7 +7,7 @@ import java.awt.*;
  * @Author: Forest
  * @Date: 2019/5/31
  */
-public class Bullet {
+public class Bullet extends GameObject {
 	private static final int SPEED = 10;
 	public static int WIDTH = ResourceManagers.bulletD.getWidth();
 	public static int HEIGHT = ResourceManagers.bulletD.getHeight();
@@ -31,12 +31,12 @@ public class Bullet {
 		rectangle.width = WIDTH;
 		rectangle.height = HEIGHT;
 
-		gm.bulletList.add(this);
+		gm.add(this);
 	}
 
 	public void paint(Graphics g) {
 		if (!living){
-			gm.bulletList.remove(this);
+			gm.remove(this);
 		}
 		switch (dir){
 			case LEFT:
@@ -82,7 +82,7 @@ public class Bullet {
 			this.die();
 			int eX = tank.getX() + Tank.WIDTH/2 - Explode.WIDTH/2;
 			int eY = tank.getY() + Tank.HEIGHT/2 - Explode.HEIGHT/2;
-			gm.explodes.add(new Explode(eX,eY,gm));
+			gm.add(new Explode(eX,eY,gm));
 		}
 	}
 
