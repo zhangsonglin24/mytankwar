@@ -30,6 +30,8 @@ public class Bullet {
 		rectangle.y = this.y;
 		rectangle.width = WIDTH;
 		rectangle.height = HEIGHT;
+
+		tf.bulletList.add(this);
 	}
 
 	public void paint(Graphics g) {
