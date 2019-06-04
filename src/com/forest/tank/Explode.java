@@ -9,14 +9,14 @@ public class Explode {
 
     private int x, y;
 
-    TankFrame tf = null;
+    GameModel gm = null;
 
     private int step = 0;
 
-    public Explode(int x, int y, TankFrame tf) {
+    public Explode(int x, int y, GameModel gm) {
         this.x = x;
         this.y = y;
-        this.tf = tf;
+        this.gm = gm;
     }
 
 
@@ -25,7 +25,7 @@ public class Explode {
         g.drawImage(ResourceManagers.explodes[step++], x, y, null);
 
         if(step >= ResourceManagers.explodes.length)
-            tf.explodes.remove(this);
+            gm.explodes.remove(this);
     }
 
 }

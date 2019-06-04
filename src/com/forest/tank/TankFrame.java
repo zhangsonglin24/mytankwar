@@ -13,11 +13,9 @@ import java.util.List;
  * @Date: 2019/5/30
  */
 public class TankFrame extends Frame {
-	Tank myTank = new Tank(100,400,Dir.RIGHT,Group.GOOD,this);
-	List<Bullet> bulletList = new ArrayList<>();
-	List<Tank> tanks = new ArrayList<>();
+
+	GameModel gm = new GameModel();
 	static final int GAME_WIDTH = 1080, GAME_HEIGHT = 960;
-	List<Explode> explodes = new ArrayList<>();
 
 	TankFrame() {
 		setTitle("坦克大战");
@@ -50,31 +48,7 @@ public class TankFrame extends Frame {
 
 	@Override
 	public void paint(Graphics g) {
-		Color c = g.getColor();
-		g.setColor(Color.WHITE);
-		g.drawString("子弹的数量:" + bulletList.size(), 10, 60);
-		g.drawString("敌人的数量:" + tanks.size(), 10, 80);
-		g.drawString("爆炸的数量:" + explodes.size(), 10, 100);
-		g.setColor(c);
-
-		myTank.paint(g);
-		for (int i = 0; i < bulletList.size(); i++) {
-			Bullet b = bulletList.get(i);
-			b.paint(g);
-		}
-		for (int i = 0; i < tanks.size(); i++) {
-			Tank b = tanks.get(i);
-			b.paint(g);
-		}
-		for (int i = 0;i <explodes.size();i++){
-			explodes.get(i).paint(g);
-		}
-		//子弹与坦克碰撞检测
-		for (int i = 0;i<bulletList.size();i++){
-			for (int j= 0;j<tanks.size();j++){
-				bulletList.get(i).collideWith(tanks.get(j));
-			}
-		}
+		gm.paint(g);
 	}
 
 
@@ -123,13 +97,14 @@ public class TankFrame extends Frame {
 					D = false;
 					break;
 				case KeyEvent.VK_CONTROL:
-					myTank.fire();
+					gm.getMyTank().fire();
 					break;
 			}
 			setMainTankDir();
 		}
 
 		private void setMainTankDir() {
+			Tank myTank = gm.getMyTank();
 			if (!L && !U && !R && !D){
 				myTank.setMoving(false);
 			}else {

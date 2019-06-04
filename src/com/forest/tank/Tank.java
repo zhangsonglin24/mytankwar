@@ -14,7 +14,7 @@ public class Tank {
 	protected Dir dir = Dir.RIGHT;
 	private int SPEED = 5;
 	private boolean moving = true;
-	private TankFrame tf = null;
+	public GameModel gm = null;
 	public static int WIDTH = ResourceManagers.goodTankU.getWidth();
 	public static int HEIGHT = ResourceManagers.goodTankU.getHeight();
 	private boolean living = true;
@@ -25,13 +25,13 @@ public class Tank {
 
 	FireStrategy fs;
 
-	public Tank(int x, int y, Dir dir, Group group, TankFrame tf){
+	public Tank(int x, int y, Dir dir, Group group, GameModel gm){
 		super();
 		this.x = x;
 		this.y = y;
 		this.dir = dir;
 		this.group = group;
-		this.tf = tf;
+		this.gm = gm;
 
 		rectangle.x = this.x;
 		rectangle.y = this.y;
@@ -46,7 +46,7 @@ public class Tank {
 	}
 
 	public void paint(Graphics g) {
-		if (!living) tf.tanks.remove(this);
+		if (!living) gm.tanks.remove(this);
 		switch (dir){
 			case LEFT:
 				g.drawImage(this.group == Group.GOOD ? ResourceManagers.goodTankL : ResourceManagers.badTankL,x,y,null);
@@ -165,14 +165,6 @@ public class Tank {
 
 	public void setMoving(boolean moving) {
 		this.moving = moving;
-	}
-
-	public TankFrame getTf() {
-		return tf;
-	}
-
-	public void setTf(TankFrame tf) {
-		this.tf = tf;
 	}
 
 	public void die() {
