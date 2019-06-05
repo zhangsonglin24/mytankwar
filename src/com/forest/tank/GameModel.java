@@ -1,12 +1,34 @@
 package com.forest.tank;
 
+import com.forest.tank.collider.ColliderChain;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameModel {
 
-    Tank myTank = new Tank(100,400,Dir.RIGHT,Group.GOOD,this);
+    Tank myTank;
+    ColliderChain chain = new ColliderChain();
+    private static final GameModel INSTANCE = new GameModel();
+    static {
+        INSTANCE.init();
+    }
+
+    private void init() {
+        myTank = new Tank(100,400,Dir.RIGHT,Group.GOOD);
+        int initTankCount = Integer.parseInt((String) PropertyMgr.get("initTankCount"));
+        //初始化敌方坦克
+        for (int i = 0;i<initTankCount;i++){
+            add(new Tank(50 + i*80,200,Dir.DOWN,Group.BAD));
+        }
+    }
+
+    private GameModel(){}
+
+    public static GameModel getInstance(){
+        return INSTANCE;
+    }
 
    /* List<Bullet> bulletList = new ArrayList<>();
     List<Tank> tanks = new ArrayList<>();
@@ -22,13 +44,6 @@ public class GameModel {
         this.objects.remove(go);
     }
 
-    public GameModel(){
-        int initTankCount = Integer.parseInt((String) PropertyMgr.get("initTankCount"));
-        //初始化敌方坦克
-        for (int i = 0;i<initTankCount;i++){
-            add(new Tank(50 + i*80,200,Dir.DOWN,Group.BAD,this));
-        }
-    }
 
     public void paint(Graphics g) {
         Color c = g.getColor();
@@ -43,12 +58,15 @@ public class GameModel {
         for (int i = 0;i < objects.size();i++){
             objects.get(i).paint(g);
         }
-        //子弹与坦克碰撞检测
-       /* for (int i = 0;i<bulletList.size();i++){
-            for (int j= 0;j<tanks.size();j++){
-                bulletList.get(i).collideWith(tanks.get(j));
+
+        // 互相碰撞
+        for (int i = 0; i < objects.size(); i++) {
+            for (int j = i + 1; j < objects.size(); j++) {
+                GameObject o1 = objects.get(i);
+                GameObject o2 = objects.get(j);
+                chain.collide(o1, o2);
             }
-        }*/
+        }
     }
 
     public Tank getMyTank(){

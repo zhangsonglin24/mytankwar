@@ -10,28 +10,26 @@ import java.util.Random;
  */
 public class Tank extends GameObject {
 
-	protected int x,y;
 	protected Dir dir = Dir.RIGHT;
 	private int SPEED = 5;
 	private boolean moving = true;
-	public GameModel gm = null;
 	public static int WIDTH = ResourceManagers.goodTankU.getWidth();
 	public static int HEIGHT = ResourceManagers.goodTankU.getHeight();
 	private boolean living = true;
 	public Group group = Group.BAD;
 	private Random random = new Random();
 	//初始化一个Rectangle，跟着tank
-	Rectangle rectangle = new Rectangle();
+	public Rectangle rectangle = new Rectangle();
+	int oldX, oldY;
 
 	FireStrategy fs;
 
-	public Tank(int x, int y, Dir dir, Group group, GameModel gm){
+	public Tank(int x, int y, Dir dir, Group group){
 		super();
 		this.x = x;
 		this.y = y;
 		this.dir = dir;
 		this.group = group;
-		this.gm = gm;
 
 		rectangle.x = this.x;
 		rectangle.y = this.y;
@@ -46,7 +44,7 @@ public class Tank extends GameObject {
 	}
 
 	public void paint(Graphics g) {
-		if (!living) gm.remove(this);
+		if (!living) GameModel.getInstance().remove(this);
 		switch (dir){
 			case LEFT:
 				g.drawImage(this.group == Group.GOOD ? ResourceManagers.goodTankL : ResourceManagers.badTankL,x,y,null);
@@ -64,7 +62,14 @@ public class Tank extends GameObject {
 		move(this.group);
 	}
 
+	public void back() {
+		x = oldX;
+		y = oldY;
+	}
+
 	private void move(Group group) {
+		oldX = x;
+		oldY = y;
 		if (!moving) return;
 		if (group == Group.GOOD){
 			//增加主战tank速度
@@ -177,5 +182,9 @@ public class Tank extends GameObject {
 
 	public void setGroup(Group group) {
 		this.group = group;
+	}
+
+	public Rectangle getRectangle() {
+		return rectangle;
 	}
 }
